@@ -1,0 +1,1 @@
+{"name":"tokens","version":"0.0.0","private":true,"main":"dist/index.js","scripts":{"build":"node build-tailwind.js"},"dependencies":{"style-dictionary":"^5.1.1"}}

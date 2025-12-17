@@ -1,0 +1,31 @@
+name: 'Chromatic Visual Regression'
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  chromatic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Required for Chromatic to detect changes
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build tokens
+        run: npm run build -w packages/tokens
+
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          # Storybook is in packages/ui, so we run the command from the root
+          token: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: packages/ui
+          # Turborepo build command for Storybook
+          buildScriptName: build-storybook
