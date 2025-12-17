@@ -1,0 +1,37 @@
+/* Fullscreen splash screen styles for Storybook */
+[data-name="1_Dark_splash screen"] {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 99999 !important;
+}
+
+/* Override ALL Storybook containers to allow fullscreen */
+.sb-story,
+.sb-story > div,
+.os-host,
+.os-padding,
+.os-viewport,
+.os-content,
+[class*="sb-story"],
+[data-is-fullscreen="true"],
+[data-is-fullscreen="true"] * {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Ensure the story container itself is fullscreen */
+[data-is-fullscreen="true"] .sb-story,
+[data-is-fullscreen="true"] .sb-story > div {
+  width: 100vw !important;
+  height: 100vh !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+

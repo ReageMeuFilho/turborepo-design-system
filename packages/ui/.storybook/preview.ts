@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/react-vite'
+import './splash-screen-global.css'
 
 const preview: Preview = {
   parameters: {

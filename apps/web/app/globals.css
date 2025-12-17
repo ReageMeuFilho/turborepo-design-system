@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import the generated CSS variables */
-@import url('/styles/css-variables.css');
-
 /* Custom CSS to apply tokens */
 :root {
   /* Fallback/default colors */
@@ -26,9 +23,8 @@ body {
 }
 
 body {
-  /* Use tokenized colors */
-  color: var(--color-text-default);
-  background: var(--color-brand-primary);
+  color: var(--foreground);
+  background: var(--background);
 }
 
 * {
